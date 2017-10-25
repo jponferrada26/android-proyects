@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.jponferrada.calculadora.Calculadora">
+
+    <TextView
+        android:id="@+id/resultado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right|center"
+        android:textSize="50dp"
+        android:padding="10dp"
+        android:layout_weight="1"
+        android:background="#efefef"
+        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        >
+        <GridLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:columnCount="4"
+            android:orientation="horizontal"
+            android:rowCount="6">
+
+            <Button
+                android:id="@+id/b7"
+                android:layout_columnSpan="1"
+                android:layout_rowSpan="1"
+                android:text="7" />
+
+            <Button
+                android:id="@+id/b8"
+                android:layout_columnSpan="1"
+                android:layout_rowSpan="1"
+                android:text="8" />
+
+            <Button
+                android:id="@+id/b9"
+                android:layout_columnSpan="1"
+                android:layout_rowSpan="1"
+                android:text="9" />
+
+            <Button
+                android:id="@+id/bdiv"
+                android:layout_columnSpan="1"
+                android:layout_rowSpan="1"
+                android:text="/" />
+
+            <Button
+                android:id="@+id/b4"
+                android:layout_columnSpan="1"
+                android:layout_rowSpan="1"
+                android:text="4" />
+
+            <Button
+                android:id="@+id/b5"
+                android:layout_columnSpan="1"
+                android:layout_rowSpan="1"
+                android:text="5" />
+
+            <Button
+                android:id="@+id/b6"
+                android:layout_columnSpan="1"
+                android:layout_rowSpan="1"
+                android:text="6" />
+
+            <Button
+                android:id="@+id/bmulti"
+                android:layout_columnSpan="1"
+                android:layout_rowSpan="1"
+                android:text="*" />
+
+            <Button
+                android:id="@+id/b1"
+                android:layout_columnSpan="1"
+                android:layout_rowSpan="1"
+                android:text="1" />
+
+            <Button
+                android:id="@+id/b2"
+                android:layout_columnSpan="1"
+                android:layout_rowSpan="1"
+                android:text="2" />
+
+            <Button
+                android:id="@+id/b3"
+                android:layout_columnSpan="1"
+                android:layout_rowSpan="1"
+                android:text="3" />
+
+            <Button
+                android:id="@+id/bmenos"
+                android:layout_columnSpan="1"
+                android:layout_rowSpan="1"
+                android:text="-" />
+
+            <Button
+                android:id="@+id/bdel"
+                android:layout_columnSpan="1"
+                android:layout_rowSpan="1"
+                android:text="C" />
+
+            <Button
+                android:id="@+id/b0"
+                android:layout_columnSpan="1"
+                android:layout_rowSpan="1"
+                android:text="0" />
+
+            <Button
+                android:id="@+id/bcoma"
+                android:layout_columnSpan="1"
+                android:layout_rowSpan="1"
+                android:text="," />
+
+            <Button
+                android:id="@+id/bmas"
+                android:layout_columnSpan="1"
+                android:layout_rowSpan="2"
+                android:layout_rowWeight="2"
+                android:text="+" />
+
+            <Button
+                android:id="@+id/bmasmenos"
+                android:layout_columnSpan="1"
+                android:layout_rowSpan="1"
+                android:text="+/-" />
+
+            <Button
+                android:id="@+id/bequals"
+                android:layout_columnSpan="2"
+                android:layout_columnWeight="2"
+                android:layout_rowSpan="1"
+                android:text="=" />
+
+        </GridLayout>
+    </ScrollView>
+</LinearLayout>
