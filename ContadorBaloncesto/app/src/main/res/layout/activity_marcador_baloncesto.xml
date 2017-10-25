@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.jponferrada.contadorbaloncesto.MarcadorBaloncesto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <Button
+                android:id="@+id/bmenosV"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                android:background="#fcbf16"
+                android:text="-1"
+                android:textColor="#F44336"
+                android:textSize="18dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fcbf16"
+                android:gravity="center"
+                android:text="VISITANTE"
+                android:textColor="#FFF"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ContadorVisitante"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#ffd460"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="#FFF"
+                android:textSize="50dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="5dp">
+
+                <Button
+                    android:id="@+id/bmas1V"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#fcbf16"
+                    android:text="+1"
+                    android:textColor="#FFF"
+                    android:textSize="23dp" />
+                <Button
+                    android:id="@+id/bmas2V"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#fcbf16"
+                    android:text="+2"
+                    android:textColor="#FFF"
+                    android:textSize="23dp" />
+
+                <Button
+                    android:id="@+id/bmas3V"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#fcbf16"
+                    android:text="+3"
+                    android:textColor="#FFF"
+                    android:textSize="23dp" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <Button
+                android:id="@+id/bmenosL"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                android:background="#fcbf16"
+                android:text="-1"
+                android:textColor="#F44336"
+                android:textSize="18dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fcbf16"
+                android:gravity="center"
+                android:text="LOCAL"
+                android:textColor="#FFF"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ContadorLocal"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#ffd460"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="#FFF"
+                android:textSize="50dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="5dp">
+
+                <Button
+                    android:id="@+id/bmas1L"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#fcbf16"
+                    android:text="+1"
+                    android:textColor="#FFF"
+                    android:textSize="23dp" />
+
+                <Button
+                    android:id="@+id/bmas2L"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#fcbf16"
+                    android:text="+2"
+                    android:textColor="#FFF"
+                    android:textSize="23dp" />
+
+                <Button
+                    android:id="@+id/bmas3L"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#fcbf16"
+                    android:text="+3"
+                    android:textColor="#FFF"
+                    android:textSize="23dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginTop="5dp"
+        >
+        <Button
+            android:id="@+id/bComprobarpartido"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:text="Comprobar resultados"
+            android:textSize="20dp"
+            android:background="#fcbf16"
+            android:layout_height="wrap_content"
+            android:textColor="#FFF"/>
+        <Button
+
+            android:id="@+id/bReset"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:text="Nuevo partido"
+            android:textSize="20dp"
+            android:layout_marginLeft="5dp"
+            android:background="#fcbf16"
+            android:layout_height="wrap_content"
+            android:textColor="#FFF"/>
+    </LinearLayout>
+</LinearLayout>
