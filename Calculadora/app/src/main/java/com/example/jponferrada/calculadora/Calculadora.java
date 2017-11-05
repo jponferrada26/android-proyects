@@ -150,9 +150,17 @@ public class Calculadora extends AppCompatActivity {
         bdiv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!(isSelectbMas || isSelectbMenos || isSelectbMulti || isSelectbDiv) && resultado.getText().toString().length() > 0) {
-                    addResultado("/");
-                    isSelectbDiv = true;
+                if (!(isSelectbMas || isSelectbMenos || isSelectbMulti) && resultado.getText().toString().length() > 0) {
+                    if(isCalculo(resultado.getText().toString())){
+                        resultado.setText(String.valueOf(calcularResultado()));
+                        addResultado("/");
+                    }else{
+                        if(!isSelectbMulti){
+                            addResultado("/");
+                            isSelectbDiv = true;
+                        }
+
+                    }
                 }
 
             }
@@ -161,19 +169,38 @@ public class Calculadora extends AppCompatActivity {
         bmulti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!(isSelectbMas || isSelectbMenos || isSelectbDiv || isSelectbMulti) && resultado.getText().toString().length() > 0) {
-                    addResultado("*");
-                    isSelectbMulti = true;
+                if (!(isSelectbMas || isSelectbMenos || isSelectbDiv) && resultado.getText().toString().length() > 0) {
+                    if(isCalculo(resultado.getText().toString())){
+                        resultado.setText(String.valueOf(calcularResultado()));
+                        addResultado("*");
+                    }else{
+                        if(!isSelectbMulti){
+                            addResultado("*");
+                            isSelectbMulti = true;
+                        }
+
+                    }
                 }
+
+
+
             }
         });
 
         bmenos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!(isSelectbMas || isSelectbMulti || isSelectbDiv || isSelectbMenos) && resultado.getText().toString().length() > 0) {
-                    addResultado("-");
-                    isSelectbMenos = true;
+                if (!(isSelectbMas || isSelectbMulti || isSelectbDiv) && resultado.getText().toString().length() > 0) {
+                    if(isCalculo(resultado.getText().toString())){
+                        resultado.setText(String.valueOf(calcularResultado()));
+                        addResultado("-");
+                    }else{
+                        if(!isSelectbMenos){
+                            addResultado("-");
+                            isSelectbMenos = true;
+                        }
+
+                    }
                 }
             }
         });
@@ -210,10 +237,20 @@ public class Calculadora extends AppCompatActivity {
         bmas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!(isSelectbMenos || isSelectbMulti || isSelectbDiv || isSelectbMas) && resultado.getText().toString().length() > 0) {
-                    addResultado("+");
-                    isSelectbMas = true;
+                if (!(isSelectbMenos || isSelectbMulti || isSelectbDiv) && resultado.getText().toString().length() > 0) {
+                    if(isCalculo(resultado.getText().toString())){
+                        resultado.setText(String.valueOf(calcularResultado()));
+                        addResultado("+");
+                    }else{
+                        if(!isSelectbMas){
+                            addResultado("+");
+                            isSelectbMas = true;
+                        }
+
+                    }
+
                 }
+
 
             }
         });
@@ -256,23 +293,38 @@ public class Calculadora extends AppCompatActivity {
         this.resultado.setText(this.resultado.getText().toString() + numeroadd);
     }
 
-    private double calcularResultado() {
-        if (isCalculo(resultado.getText().toString())) {
-            double numero1 = Double.valueOf(resultado.getText().toString().split("[\\*]|[\\+]|(\\d[-]\\d)|[\\/]")[0]);
-            double numero2 = Double.valueOf(resultado.getText().toString().split("[\\*]|[\\+]|(\\d[-]\\d)|[\\/]")[1]);
+    private Double calcularResultado() {
+        try{
+            if (isCalculo(resultado.getText().toString())) {
+                double numero1 = 0;
+                double numero2 = 0;
+                if(isResta(resultado.getText().toString()) && resultado.getText().toString().matches("([-](\\d+)[-][-](\\d+))")){// (-numero- -numero)
+                    numero1 = Double.valueOf(resultado.getText().toString().split("([-](?=[-]\\d+))")[0]);
+                    numero2 = Double.valueOf(resultado.getText().toString().split("([-](?=[-]\\d+))")[1]);
+                }else if(isResta(resultado.getText().toString()) && resultado.getText().toString().matches("([-](\\d+)[-](\\d+))")){// (-numero - numero)
+                    numero1 = Double.valueOf(resultado.getText().toString().split("(([-])(?=\\d+$))")[0]);
+                    numero2 = Double.valueOf(resultado.getText().toString().split("(([-])(?=\\d+$))")[1]);
+                }else if(isResta(resultado.getText().toString()) && resultado.getText().toString().matches("(\\d+[-][-](\\d+))")){
+                    numero1 = Double.valueOf(resultado.getText().toString().split("([-](?=[-]\\d+))")[0]);
+                    numero2 = Double.valueOf(resultado.getText().toString().split("([-](?=[-]\\d+))")[1]);
+                }else{
+                    numero1 = Double.valueOf(resultado.getText().toString().split("[\\*]|[\\+]|[-]|[\\/]")[0]);
+                    numero2 = Double.valueOf(resultado.getText().toString().split("[\\*]|[\\+]|[-]|[\\/]")[1]);
 
-            if (isSuma(resultado.getText().toString()))
-                return numero1 + numero2;
-            else if (isResta(resultado.getText().toString()))
-                return numero1 - numero2;
-            else if (isMultiplicacion(resultado.getText().toString()))
-                return numero1 * numero2;
-            else if (isDivision(resultado.getText().toString()))
-                return numero1 / numero2;
-
-
+                }
+                if (isSuma(resultado.getText().toString()))
+                    return numero1 + numero2;
+                else if (isResta(resultado.getText().toString()))
+                    return numero1 - numero2;
+                else if (isMultiplicacion(resultado.getText().toString()))
+                    return numero1 * numero2;
+                else if (isDivision(resultado.getText().toString()))
+                    return numero1 / numero2;
+            }
+            return Double.valueOf(resultado.getText().toString().split("[\\*]|[\\+]|[-]|[\\/]")[0]);
+        }catch(Exception e){
+            return 0.0;
         }
-        return 0;
     }
 
     private boolean isNumeroLimpio(String calculo) {
