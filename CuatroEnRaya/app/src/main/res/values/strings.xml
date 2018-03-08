@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">CuatroEnRaya</string>
+    <string name="title_activity_inicio">Inicio</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string-array name="opcionesQuienEmpizaPrimero">
+        <item>Usuario</item>
+        <item>Máquina</item>
+    </string-array>
+    <string-array name="valuesOEpcionesQuienEmpizaPrimero">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+</resources>

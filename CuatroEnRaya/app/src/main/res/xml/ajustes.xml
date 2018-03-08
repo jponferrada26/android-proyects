@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="Básicos"
+        android:key="pref_key_storage_settings">
+        <CheckBoxPreference
+            android:key="musicaFondo"
+            android:title="Música de fondo"
+            android:summary="Elige si quieres musica de fondo"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="Avanzados"
+        android:key="pref_key_storage_settings">
+        <ListPreference
+            android:key="empiezaPartida"
+            android:title="¿Quién empieza?"
+            android:summary="Elige el usuario que juega primero"
+            android:dialogTitle="Selecciona el usuario"
+            android:entries="@array/opcionesQuienEmpizaPrimero"
+            android:entryValues="@array/valuesOEpcionesQuienEmpizaPrimero"
+            android:defaultValue="1" />
+    </PreferenceCategory>
+</PreferenceScreen>
